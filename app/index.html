@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .api-box {
+            background: #f4f4f4;
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        #result {
+            background: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: monospace;
+            text-align: left;
+        }
+        .note {
+            color: #666;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        a {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 My First API</h1>
+    <p>Welcome! Here's my simple API that returns a friendly message.</p>
+    
+    <div class="api-box">
+        <h2>API Endpoint</h2>
+        <p><strong>URL:</strong> <code>/api/hello</code></p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Response:</strong> JSON with a message</p>
+    </div>
+
+    <h2>Try It Out!</h2>
+    <p>Click the button to call the API and see the result:</p>
+    
+    <button onclick="callAPI()">Call API</button>
+    
+    <div id="result">
+        Click the button to see the API response here...
+    </div>
+
+    <div class="note">
+        <p>⚠️ <strong>Note:</strong> This is a demo of how the API would work.</p>
+        <p>Since GitHub Pages can't run real backend code, this shows a simulated response.</p>
+        <p>To make this work with a real API, you would need to:</p>
+        <ul style="text-align: left; display: inline-block;">
+            <li>Host your Python/C API on a real server</li>
+            <li>Replace the fake response with a real API call</li>
+        </ul>
+        <p>Check out the code on <a href="https://github.com/91danny/dominick.fun/tree/main/app" target="_blank">GitHub</a></p>
+    </div>
+
+    <script>
+        function callAPI() {
+            // Show loading
+            document.getElementById('result').innerHTML = 'Calling API...';
+            
+            // Simulate API call (since GitHub Pages can't run real backend)
+            setTimeout(() => {
+                // This is what a real API would return
+                const fakeResponse = {
+                    "message": "Hello World!",
+                    "timestamp": new Date().toISOString(),
+                    "status": "success"
+                };
+                
+                // Display the response nicely
+                document.getElementById('result').innerHTML = `
+                    <strong>✅ API Response:</strong><br><br>
+                    ${JSON.stringify(fakeResponse, null, 2)}
+                `;
+            }, 1000);
+            
+            // If you had a REAL API hosted somewhere, you would use this code instead:
+            /*
+            fetch('https://your-real-api-server.com/hello')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = `
+                        <strong>✅ API Response:</strong><br><br>
+                        ${JSON.stringify(data, null, 2)}
+                    `;
+                })
+                .catch(error => {
+                    document.getElementById('result').innerHTML = `
+                        <strong>❌ Error:</strong><br><br>
+                        ${error}
+                    `;
+                });
+            */
+        }
+    </script>
+</body>
+</html>
